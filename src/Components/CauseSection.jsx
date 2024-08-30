@@ -1,9 +1,10 @@
 import React from 'react';
-import'../Styles/CauseSection.css';
-import image1 from'../Assets/medical.jpeg';
-import image2 from '../Assets/food.jpeg';
+import { Link } from 'react-router-dom';
 import image3 from '../Assets/education.jpeg';
+import image2 from '../Assets/food.jpeg';
+import image1 from '../Assets/medical.jpeg';
 import image4 from '../Assets/wework.jpeg';
+import '../Styles/CauseSection.css';
 
 
 
@@ -23,7 +24,9 @@ const DonationCard = ({ image, category, title, description, progress, raised, g
         <span>Goal: ${goal}</span>
       </div>
     </div>
+    <Link to="/donate">
     <button className="donation-card-button">Donate Now</button>
+  </Link>
   </div>
 );
 

@@ -86,14 +86,13 @@ const FAQ = () => {
             style={{ textAlign: "left" }}
             className="text-2xl font-semibold mb-4 text-secondary-foreground"
           >
-            Still Need Help
+            Still Need Help ?
           </h2>
           <p
             style={{ textAlign: "left" }}
             className="text-muted-foreground mb-8"
           >
-            We enjoy adapting our strategies to offer every client <br></br>the
-            best solutions that are at the forefront of the industry.
+          Together, we can build a brighter future for all.<br></br> Get in touch with us today and become a part of the solution!.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="flex flex-col items-center bg-[#EDF7F5] p-10 rounded">
@@ -106,8 +105,7 @@ const FAQ = () => {
                 Call Support
               </h3>
               <p className="text-muted-foreground">
-                We analyze your websitic sketches, internet architecture, and
-                other key elements.
+              Whether you have questions, want to get involved, or simply wish to learn more about our work, please feel free to reach out
               </p>
             </div>
             <div className="flex flex-col items-center bg-[#EDF7F5] p-10 rounded">
@@ -125,7 +123,7 @@ const FAQ = () => {
                 Address
               </h3>
               <p className="text-muted-foreground">
-                4517 Washington Ave. Manchester, Kentucky 39495
+               Dansoman, Asoredanho
               </p>
             </div>
           </div>

@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
-import HomeScreen from './Pages/HomeScreen';
-import AboutUs from './Pages/AboutUs';
+import React, { useEffect, useState } from 'react';
+import { Route, BrowserRouter as Router, Routes, useLocation } from 'react-router-dom';
+import Donate from './Components/Donate';
 import Footer from './Components/Footer';
+import LoaderComponent from './Components/Loader';
+import AboutUs from './Pages/AboutUs';
 import ContactUs from './Pages/ContactUs';
 import FAQ from './Pages/FAQ';
-import LoaderComponent from './Components/Loader';
+import HomeScreen from './Pages/HomeScreen';
+import Volunteer from './Components/volunteer';
 
 const App = () => {
   const [loading, setLoading] = useState(false);
@@ -29,6 +31,8 @@ const App = () => {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/faq" element={<FAQ />} />
+        <Route path="/donate" element={<Donate />} />
+        <Route path="/volunteer" element={<Volunteer />} />
       </Routes>
       <Footer />
     </div>

@@ -29,25 +29,38 @@ const RegistrationForm = () => {
       first_name: formData.firstName,
       last_name: formData.lastName,
       email_address: formData.email,
+      gender: formData.gender,
     };
 
-    createVolunteer(VolunteerData)
-      .then((response) => {
-        console.log("Volunteer registered successfully:", response.data);
-        setMessage("Thank you for volunteering to YOSA");
-
-        // Clear the form
-        setFormData({
-          firstName: "",
-          lastName: "",
-          email: "",
-          gender: "",
-        });
-      })
-      .catch((error) => {
-        console.log("There was an error registering volunteer!", error);
-        setMessage("Sorry, the email has alreday been used. Please try again!");
+    try {
+      const response = await createVolunteer(VolunteerData);
+      console.log("Volunteer registered successfully:", response.data);
+      setMessage("Thank you for volunteering to YOSA");
+  
+      // Clear the form
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        gender: "",
       });
+    } catch (error) {
+      if (error.response) {
+        // Server responded with a status other than 200 range
+        if (error.response.status === 400) {
+          setMessage("Sorry, the email has already been used. Please try again!");
+        } else {
+          setMessage("There was an error registering volunteer!");
+        }
+      } else if (error.request) {
+        // Request was made but no response received
+        setMessage("Server is not responding. Please try again later.");
+      } else {
+        // Something else happened while setting up the request
+        setMessage("An unexpected error occurred. Please try again.");
+      }
+      console.log("There was an error registering volunteer!", error.response);
+    }
   };
 
   return (
@@ -108,9 +121,9 @@ const RegistrationForm = () => {
               required
             >
               <option value="">Select Gender</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              <option value="other">Other</option>
+              <option value="M">Male</option>
+              <option value="F">Female</option>
+              <option value="O">Other</option>
             </select>
           </div>
           <button type="submit" className="submit-button">

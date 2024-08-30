@@ -1,19 +1,22 @@
- import React from "react";
+
+ import image1 from "../Assets/Gall1.png";
+import image2 from "../Assets/gall2.png";
+import image3 from "../Assets/gall3.png";
+//import Gallery4 from "../Assets/gall4.png";
+//import Gallery5 from "../Assets/gall5.png";
+//import Gallery6 from "../Assets/gall6.png";
+import React, { useEffect, useState } from "react";
 import "../Styles/AboutUs.css";
-import Gallery1 from "../Assets/Gall1.png";
-import Gallery2 from "../Assets/gall2.png";
-import Gallery3 from "../Assets/gall3.png";
-import Gallery4 from "../Assets/gall4.png";
-import Gallery5 from "../Assets/gall5.png";
-import Gallery6 from "../Assets/gall6.png";
 import Navbar from "../Components/Navbar";
-import Aboutus1 from "../Assets/aboutus1.png";
-import Aboutus2 from "../Assets/aboutus2.png";
 import hope from "../Assets/hope.png";
 import mission from '../Assets/missionicon.png';
 import vision from '../Assets/visionicon.png';
-import Testimonial from "../Components/Testimonial";
 import Team from "../Components/Team";
+import Testimonial from "../Components/Testimonial";
+import "../Styles/AboutUs.css";
+import { fetchgallery } from "../api/ApiService";
+
+
 
 const features = [
   {
@@ -51,54 +54,72 @@ const features = [
   },
 ];
 
+
+
 const AboutUs = () => {
+
+  const [image, setImage] = useState([])
+
+  useEffect(() => {
+    fetchgallery()
+    .then((response) => {
+      console.log("Fetched data", response.data);
+      setImage(response.data);
+    }).catch((error) => {
+      console.error("There was an error fetching images!", error);
+    });
+  }, []);
+
+
+
+
   return (
-    <div className="about-page">
-      <header className="header">
-        <Navbar />
-        <div className="header-text">
-          <h1>About Us</h1>
-        </div>
-      </header>
-      <main className="about-us">
-        <div className="images">
-          <img src={Aboutus1} alt="Aboutus1" className="image-large" />
-          <img src={Aboutus2} alt="Aboutus2" className="image-small" />
-        </div>
-        <div className="text-content">
-          <h2>About Us</h2>
-          <h1>Your Support Is Really Powerful.</h1>
-          <p>
-            The secret to happiness lies in helping others. Never underestimate
-            the difference YOU can make in the lives of the poor, the abused and
-            the helpless. The secret to happiness lies in helping others. Never
-            underestimate the difference YOU can make in the lives of the poor,
-            the abused and the helpless. The secret to happiness lies in helping
-            others. Never underestimate the difference YOU can make in the lives
-            of the poor, the abused and the helpless. The secret to happiness
-            lies in helping others. Never underestimate the difference YOU can
-            make in the lives of the poor, the abused and the helpless.{" "}
-          </p>
-        </div>
+<div className="about-page">
+  <header className="header">
+    <Navbar />
+    <div className="header-text">
+      <h1>About Us</h1>
+    </div>
+  </header>
+
+  <div className="container">
+    <div className="image-content">
+      <img src={image1} alt="Team Img 1" />
+      <img src={image2} alt="Team Img 2" />
+      <img src={image3} alt="Team Img 3" />
+    </div>
+    <div className="text-content">
+      <h1>About Us</h1>
+      <p>
+        Youth Space Afrika is a non for profit, youth led, adolescent focus and
+        women focused organization that provides safe spaces for young people and girls
+        to develop their potentials and as well advocate for against issues that affect
+        adolescents, marginalized and vulnerable such as Persons with Disabilities,
+        Persons living with HIV and Street children. The organization further serves as a platform
+        where young people are able to access all information relating to their Sexual and
+        Reproductive Health and Rights in order for them to make informed decisions.
+      </p>
+    </div>
+  </div>
         <Team/>
         <div className="charitySection">
       <div className="charityContent">
         <h2>Welcome To Charity</h2>
         <h1>Let Us Come Together To Make A Difference</h1>
-        <p>Towards A World Where Young People Regardless Of Gender, Unlock Their Full Potential Through Youth Leadership, Mentorship, And Empowerment, Contributing To A Brighter Future For All.</p>
+        <p>Towards A World Where Young People Regardless Of Gender,<br></br> Unlock Their Full Potential Through Youth Leadership,<br></br> Mentorship, And Empowerment, Contributing To A Brighter Future For All.</p>
         <div className="missionVision">
           <div className="mission">
             <img src={mission} alt="mission" />
             <h3>Our Mission</h3>
             <p>
-              To Empower Young People Of All Genders Through Inclusive Leadership. 
+              To Empower Young People Of <br></br>All Genders Through Inclusive Leadership. 
             </p>
           </div>
           <div className="vision">
             <img src={vision} alt="vision" />
             <h3>Our Vision</h3>
             <p>
-              Working Towards A World Where Young People, Irrespective Of Gender, Unlock Their Full Potential Through Youth Leadership, Mentorship, And Empowerment. 
+              Working Towards A World Where Young People, <br></br>Irrespective Of Gender, Unlock Their Full Potential <br></br>Through Youth Leadership, Mentorship, And Empowerment. 
             </p>
           </div>
         </div>
@@ -176,17 +197,13 @@ const AboutUs = () => {
 
         <section className="gallery-section">
           <h2>Our Gallery</h2>
-          <div className="gallery-images">
-            <img src={Gallery1} alt="Gallery1" className="Gallery1" />
-            <img src={Gallery2} alt="Gallery2" className="Gallery2" />
-            <img src={Gallery3} alt="Gallery3" className="Gallery3" />
-            <img src={Gallery4} alt="Gallery4" className="Gallery4" />
-            <img src={Gallery5} alt="Gallery5" className="Gallery5" />
-            <img src={Gallery6} alt="Gallery6" className="Gallery6" />
+          <div  className="gallery-images">
+          {image.map((img, index) => (
+            <img src={img.image} key={index} alt={`Gallery ${index}`} className="Gallery1" />
+          ))}
           </div>
         </section>
    <Testimonial/>
-      </main>
     </div>
   );
 };

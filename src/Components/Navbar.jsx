@@ -31,7 +31,7 @@ const Navbar = () => {
         >
             <List>
                 {['Home','About', 'Contact','News','FAQ'].map((text) => (
-                    <ListItem button key={text} component={Link} to={`/${text.toLowerCase()}`}>
+                    <ListItem button key={text} component={Link} to={text.toLowerCase() === 'home' ? '/' : `/${text.toLowerCase()}`}>
                         <ListItemText primary={text} />
                     </ListItem>
                 ))}
@@ -66,21 +66,18 @@ const Navbar = () => {
                 </>
             ) : (
                 <div className='navButtons'>
-                    <Button variant='text' size="large" component={Link} to="/" className="navButton">
-                        Home
-                    </Button>
-                    <Button variant='text' size="large" component={Link} to="/about" className="navButton">
-                        About
-                    </Button>
-                    <Button variant='text' size="large" component={Link} to="/contact" className="navButton">
-                        Contact
-                    </Button>
-                    <Button variant='text' size="large" component={Link} to="/news" className="navButton">
-                        News
-                    </Button>
-                    <Button variant='text' size="large" component={Link} to="/faq" className="navButton">
-                        FAQ
-                    </Button>
+                    {['Home','About', 'Contact','FAQ'].map((text) => (
+                        <Button 
+                            variant='text' 
+                            size="large" 
+                            component={Link} 
+                            to={text.toLowerCase() === 'home' ? '/' : `/${text.toLowerCase()}`} 
+                            className="navButton"
+                            key={text}
+                        >
+                            {text}
+                        </Button>
+                    ))}
                 </div>
             )}
         </Box>
