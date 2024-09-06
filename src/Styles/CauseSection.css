@@ -3,7 +3,6 @@
   padding: 32px;
 }
 .heading {
-  font-size: 1.5em;
   text-align: left;
   margin-top: 5px;
   color: #090909;
@@ -12,7 +11,7 @@
 
 .section-heading {
   font-size: 2em;
-  margin-bottom: 32px;
+  margin-bottom: 10px;
   text-align: left;
 }
 

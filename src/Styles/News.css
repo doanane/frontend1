@@ -1,44 +1,128 @@
+/* News.css */
 
-.container {
+.latest-news {
+  padding: 20px;
+  max-width: 1200px;
   margin: 0 auto;
- margin-bottom: 50px;
 }
 
-.header {
+.latest-news h2 {
   text-align: center;
-  margin-bottom: 40px;
-}
-
-.author {
+  font-size: 28px;
   font-weight: bold;
-}
-
-.section h2 {
-  margin-top: 40px;
   margin-bottom: 20px;
+  color: #333;
 }
 
-.card-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+.news-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
 }
 
-.card {
-  background-color: #1e1e1e;
-  border-radius: 8px;
+.news-card {
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
   overflow: hidden;
-  text-align: center;
-  padding: 10px;
+  transition: transform 0.3s ease;
+  flex-basis: 30%;
+  max-width: 30%;
 }
 
-.card img {
+.news-card:hover {
+  transform: translateY(-5px);
+}
+
+.news-image {
   width: 100%;
-  height: auto;
+  height: 200px;
+  object-fit: cover;
+  background-color: #e0e0e0; /* Placeholder background color */
 }
 
+.news-content {
+  padding: 20px;
+}
 
+.news-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 10px;
+}
 
+.news-meta .author i,
+.news-meta .date i {
+  margin-right: 5px;
+}
 
+.news-content h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
 
+.news-content p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
 
+.read-moree {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.read-moree:hover {
+  background-color: #555;
+}
+
+.navigation {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.nav-button {
+  background-color: #e0e0e0;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.nav-button:hover {
+  background-color: #ccc;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .news-card {
+    flex-basis: 45%;
+    max-width: 45%;
+  }
+}
+
+@media (max-width: 768px) {
+  .news-card {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+
+  .navigation {
+    justify-content: center;
+  }
+}

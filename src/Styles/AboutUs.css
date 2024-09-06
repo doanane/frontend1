@@ -19,7 +19,7 @@
   padding: 20px;
   border-radius: 10px;
   margin: 50px 0; /* Adjusted margin to fit header section */
-  animation: fadeIn 3s ease-in-out forwards;
+
 }
 
 .header-text h1 {
@@ -27,14 +27,6 @@
   color: #fff; /* Ensures the text is readable on the dark background */
 }
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 
 .container {
   display: grid;
@@ -80,8 +72,8 @@
 }
 
 .text-content p {
-  font-size: 1rem;
-  line-height: 2;
+  font-size: 1.2rem;
+  line-height: 1.5;
   color: #666;
 }
 
@@ -94,11 +86,13 @@
   .text-content {
     padding: 20px;
   }
-
-  .text-content h1 {
+  .header-text h1{
     font-size: 1.5rem;
   }
-
+  .text-content h1 {
+    font-size:7vw;
+  }
+  
   .image-content {
     order: -1;
   }
@@ -110,11 +104,11 @@
 
 @media (max-width: 480px) {
   .text-content h1 {
-    font-size: 1.2rem;
+    font-size: 3vwrem;
   }
 
   .text-content p {
-    font-size: 0.9rem;
+    font-size:5vw;
   }
 }
 
@@ -287,6 +281,7 @@
   padding: 1rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   left: -30px;
+  width: 500px;
   height: 200px;
   border: 7px solid #bdebe0;
 }
@@ -421,7 +416,7 @@
 @media (max-width: 768px) {
   .features-cards {
     grid-template-columns: repeat(2, 1fr);
-    margin-left:5px ;
+    margin-left:-15px ;
   }
 
 
@@ -446,7 +441,7 @@
 
   
 .charityContent{
-  font-size: 0.8em;
+  font-size: 2vw;
 }
   
 
@@ -470,9 +465,9 @@
 
   .overlay {
     left: -60px;
-    width: 100;
-    text-align: center;
-    height: auto;
+    width: 310px;
+    text-align: left;
+    height:170px;
     margin-top: 2x;
     padding: 1rem 0;
     font-size: 0.8em;

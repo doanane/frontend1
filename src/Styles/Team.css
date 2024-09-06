@@ -2,11 +2,13 @@
   text-align: center;
   padding: 20px;
   margin-top: 60px;
-  margin-left: 45px;
+  margin-left: 35px;
 }
 
 .headingg {
   margin-bottom: 20px;
+right: 5px;
+
 }
 
 .team-members {
@@ -23,7 +25,7 @@
   padding: 20px;
   width: 250px;
   transition: transform 0.3s;
-  height: 430px;
+  height: 400px;
 }
 
 .team-member:hover {
@@ -54,5 +56,9 @@
 @media (max-width: 600px) {
   .team-members {
     flex-direction: column;
+  }
+  .headingg{
+    font-size: 7vw;
+
   }
 }

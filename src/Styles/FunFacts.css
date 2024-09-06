@@ -6,7 +6,6 @@
 .fun-facts-container h2 {
   color: black;
   text-align: left;
-  font-size: 1.5em;
   color: #090909;
   margin-top: 5px;
 }
@@ -20,7 +19,7 @@
 .facts {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 100px;
   flex-wrap: wrap;
 }
 
@@ -37,7 +36,7 @@
 .fact-icon {
   font-size: 40px;
   color: #219D80;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .fact-number {
@@ -55,18 +54,19 @@
   .facts {
     flex-direction: column;
     align-items: center;
+   margin-top: 30px;
   }
 
   .fact {
     width: 80%;
     height: auto;
     padding: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 
   .fact-icon {
     font-size: 35px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 
   .fact-number {
@@ -82,6 +82,7 @@
 @media (max-width: 480px) {
   .fun-facts-container h1 {
     font-size: 20px;
+    margin-top: 20px;
   }
 
   .fact {
@@ -90,16 +91,16 @@
   }
 
   .fact-icon {
-    font-size: 30px;
+    font-size: 50px;
     margin-bottom: 15px;
   }
 
   .fact-number {
-    font-size: 24px;
+    font-size: 30px;
     margin-bottom: 10px;
   }
 
   .fact-label {
-    font-size: 10px;
+    font-size: 30px;
   }
 }

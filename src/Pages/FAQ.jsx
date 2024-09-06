@@ -15,9 +15,10 @@ const FAQ = () => {
       >
         <Navbar />
         <div className="relative z-10 flex items-center justify-center h-full ">
-          <h1 className="text-4xl text-white font-bold">
-            Frequently Asked Questions
-          </h1>
+        <h1 className="text-4xl text-white font-bold bg-[rgba(56,2,68,0.4)] p-4 rounded-md animate-fadeIn">
+  Frequently Asked Questions
+</h1>
+
         </div>
       </header>
 

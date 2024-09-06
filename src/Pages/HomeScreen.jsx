@@ -7,6 +7,7 @@ import CharitySection from '../Components/CharitySection';
 import FunFacts from '../Components/FunFacts';
 import Navbar from '../Components/Navbar';
 import '../Styles/HomeScreen.css';
+import LatestNews from '../Components/News';
 
 const HomeScreen = () => {
   return (
@@ -60,6 +61,7 @@ const HomeScreen = () => {
       <CharitySection />
       <FunFacts />
       <CauseSection />
+      <LatestNews/>
     </div>
   );
 };

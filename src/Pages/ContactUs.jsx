@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import Navbar from "../Components/Navbar.jsx";
 import "../Styles/tailwind.css";
@@ -57,9 +58,13 @@ const ContactUs = () => {
           alt="Header"
           className="h-64 w-full object-cover"
         />
-        <h1 className="text-5xl text-center text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          Contact Us
-        </h1>
+      <h1
+  className="text-5xl text-center text-white p-4 rounded-md absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+  style={{ backgroundColor: 'rgba(56, 2, 68, 0.4)' }}
+>
+  Contact Us
+</h1>
+
         <div className="absolute top-0 left-0 right-0">
           <Navbar />
         </div>
@@ -211,4 +216,4 @@ const ContactUs = () => {
   );
 };
 
-export default ContactUs;
+export default ContactUs
