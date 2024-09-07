@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import Navbar from "../Components/Navbar.jsx";
 import "../Styles/tailwind.css";
@@ -21,7 +20,7 @@ const ContactUs = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     const ContactData = {
       first_name: formData.firstname,
       last_name: formData.lastname,
@@ -29,11 +28,11 @@ const ContactUs = () => {
       phone_number: formData.phone,
       message: formData.message,
     };
-
+  
     try {
       const response = await createContactUsMesasge(ContactData);
       if (response.data.success) {
-        setMessage("Thank you for reaching out, we'll respond to you shortly");
+        setMessage("Thank you for reaching out, we'll respond to you shortly.");
         setFormData({
           firstname: "",
           lastname: "",
@@ -42,13 +41,15 @@ const ContactUs = () => {
           message: "",
         });
       } else {
-        setMessage(response.data.error);
+        const errorMessage = response.data.error || "An error occurred while processing your request.";
+        setMessage("There was an error: " + errorMessage);
       }
     } catch (error) {
       console.log(error);
       setMessage("Sorry, your message wasn't sent. Please try again later!");
     }
   };
+  
 
   return (
     <div className="relative">
@@ -58,12 +59,12 @@ const ContactUs = () => {
           alt="Header"
           className="h-64 w-full object-cover"
         />
-      <h1
-  className="text-5xl text-center text-white p-4 rounded-md absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-  style={{ backgroundColor: 'rgba(56, 2, 68, 0.4)' }}
->
-  Contact Us
-</h1>
+        <h1
+          className="text-5xl text-center text-white p-4 rounded-md absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+          style={{ backgroundColor: "rgba(56, 2, 68, 0.4)" }}
+        >
+          Contact Us
+        </h1>
 
         <div className="absolute top-0 left-0 right-0">
           <Navbar />
@@ -71,7 +72,11 @@ const ContactUs = () => {
       </div>
 
       <div className="mx-6 md:mx-20">
-        {message && <p className="form-message">{message}</p>}
+        {message && (
+          <div className="bg-green-100 text-green-700 p-4 rounded-md mb-4">
+            {message}
+          </div>
+        )}
         <p className="text-lg font-bold mt-5">Get In Touch</p>
         <h2 className="text-3xl font-bold">Send Me A Message</h2>
       </div>
@@ -211,9 +216,16 @@ const ContactUs = () => {
             className="h-full object-contain"
           />
         </div>
+        <div className="w-1/4 h-full flex justify-center bg-white">
+          <img
+            src={require("../Assets/client4.png")}
+            alt="sponsor4"
+            className="h-full object-contain"
+          />
+        </div>
       </div>
     </div>
   );
 };
 
-export default ContactUs
+export default ContactUs;
