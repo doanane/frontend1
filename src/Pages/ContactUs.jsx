@@ -20,35 +20,33 @@ const ContactUs = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     const ContactData = {
-      first_name: formData.firstname,
-      last_name: formData.lastname,
-      email: formData.email,
-      phone_number: formData.phone,
-      message: formData.message,
+        first_name: formData.firstname,
+        last_name: formData.lastname,
+        email: formData.email,
+        phone_number: formData.phone,
+        message: formData.message,
     };
-  
+
     try {
-      const response = await createContactUsMesasge(ContactData);
-      if (response.data.success) {
-        setMessage("Thank you for reaching out, we'll respond to you shortly.");
-        setFormData({
-          firstname: "",
-          lastname: "",
-          email: "",
-          phone: "",
-          message: "",
-        });
-      } else {
-        const errorMessage = response.data.error || "An error occurred while processing your request.";
-        setMessage("There was an error: " + errorMessage);
-      }
+        const response = await createContactUsMesasge(ContactData);
+        if (response.data.success) {
+            // Show an alert with the thank-you message
+            alert(response.data.message);
+
+            // Redirect to the homepage after submission
+            window.location.href = '/'; // Adjust this to your homepage route if necessary
+        } else {
+            // Show the error message returned from the server
+            alert(response.data.message);
+        }
     } catch (error) {
-      console.log(error);
-      setMessage("Sorry, your message wasn't sent. Please try again later!");
+        console.log(error);
+        setMessage("Sorry, your message wasn't sent. Please try again later!");
     }
-  };
+};
+
   
 
   return (
